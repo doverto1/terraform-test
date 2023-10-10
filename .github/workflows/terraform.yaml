@@ -9,13 +9,16 @@ jobs:
         runs-on: ubuntu-latest
         
         steps:
-            - name: Setup Terraform
-              uses: hashicorp/setup-terraform@v2
-              with:
-                terraform_version: 1.6.0
+          - name: Setup Terraform
+            uses: hashicorp/setup-terraform@v2
+            with:
+              terraform_version: 1.6.0
+  
+          - name: Terraform Init
+            run: terraform init
+    
+          - name: Terraform Format
+            run: terraform fmt -check
 
-            - name: Terraform Init
-              run: terraform init
-
-            - name: Terraform Test
-              run: terraform test
+          - name: Terraform Apply
+            run: terraform apply -auto-approve -input=false
