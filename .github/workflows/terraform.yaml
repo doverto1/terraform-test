@@ -9,6 +9,8 @@ jobs:
         runs-on: ubuntu-latest
         
         steps:
+          - name: Git clone the repository
+            uses: actions/checkout@v3
           - name: Setup Terraform
             uses: hashicorp/setup-terraform@v2
             with:
@@ -20,5 +22,5 @@ jobs:
           - name: Terraform Format
             run: terraform fmt -check
 
-          - name: Terraform Apply
-            run: terraform apply -auto-approve -input=false
+          - name: Terraform Test
+            run: terraform test
