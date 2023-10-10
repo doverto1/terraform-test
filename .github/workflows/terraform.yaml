@@ -1,0 +1,21 @@
+name: Terraform
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+    Terraform:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v2
+              with:
+                terraform_version: 1.6.0
+
+            - name: Terraform Init
+              run: terraform Init
+
+            - name: Terraform Test
+              run: terraform test
