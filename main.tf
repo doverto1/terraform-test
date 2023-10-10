@@ -9,7 +9,7 @@ locals {
   admins = {
     gary  = "gary@gmail.com"
     wendy = "wendy@gmail.com"
-    bob   = "bob@gmail.com"
+
   }
 
   #users with read only access
